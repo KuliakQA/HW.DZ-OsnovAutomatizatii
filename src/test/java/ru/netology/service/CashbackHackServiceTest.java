@@ -4,11 +4,11 @@ import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-class CashbackHackServiceTest {
+public class CashbackHackServiceTest {
     CashbackHackService cashbackHackService = new CashbackHackService();
 
     @Test
-    public void should() {
+    public void shouldAdd100() {
         int amount = 900;
         int expected = 100;
 
@@ -18,7 +18,17 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    public void should1() {
+    public void shouldAdd0() {
+        int amount = 1000;
+        int expected = 0;
+
+        int actual = cashbackHackService.remain(amount);
+
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldAddBig() {
         int amount = 100;
         int expected = 900;
 
@@ -28,7 +38,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    public void should2() {
+    public void shouldAdd1() {
         int amount = 999;
         int expected = 1;
 
@@ -38,7 +48,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    public void should3() {
+    public void shouldAddHalf() {
         int amount = 43500;
         int expected = 500;
 
@@ -48,7 +58,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    public void should4() {
+    public void shouldAddMoreHalf() {
         int amount = 35387;
         int expected = 613;
 
@@ -58,7 +68,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    public void should5() {
+    public void shouldAddFastThousand() {
         int amount = 10;
         int expected = 990;
 
