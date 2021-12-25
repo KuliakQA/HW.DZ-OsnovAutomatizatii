@@ -1,70 +1,80 @@
 package ru.netology.service;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class CashbackHackServiceTest {
-    CashbackHackService cashbackHackService = new CashbackHackService();
+public class CashbackHackServiceTest {
+    CashbackHackService service = new CashbackHackService();
 
     @Test
-    public void should() {
+    public void shouldAdd0() {
+        int amount = 1000;
+        int expected = 0;
+
+        int actual = service.remain(amount);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldAdd100() {
         int amount = 900;
         int expected = 100;
 
-        int actual = cashbackHackService.remain(amount);
+        int actual = service.remain(amount);
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void should1() {
+    public void shouldAddBig() {
         int amount = 100;
         int expected = 900;
 
-        int actual = cashbackHackService.remain(amount);
+        int actual = service.remain(amount);
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void should2() {
+    public void shouldAdd1() {
         int amount = 999;
         int expected = 1;
 
-        int actual = cashbackHackService.remain(amount);
+        int actual = service.remain(amount);
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void should3() {
+    public void shouldAddHalf() {
         int amount = 43500;
         int expected = 500;
 
-        int actual = cashbackHackService.remain(amount);
+        int actual = service.remain(amount);
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void should4() {
+    public void shouldAddMoreThanAHalf() {
         int amount = 35387;
         int expected = 613;
 
-        int actual = cashbackHackService.remain(amount);
+        int actual = service.remain(amount);
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void should5() {
+    public void shouldAddAlmostAThousand() {
         int amount = 10;
         int expected = 990;
 
-        int actual = cashbackHackService.remain(amount);
+        int actual = service.remain(amount);
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
 }
