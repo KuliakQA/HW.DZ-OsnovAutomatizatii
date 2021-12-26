@@ -68,6 +68,16 @@ public class CashbackHackServiceTest {
     }
 
     @Test
+    public void shouldAddNothing() {
+        int amount = 15000;
+        int expected = 0;
+
+        int actual = cashbackHackService.remain(amount);
+
+        assertEquals(actual, expected);
+    }
+
+    @Test
     public void shouldAddFastThousand() {
         int amount = 10;
         int expected = 990;
